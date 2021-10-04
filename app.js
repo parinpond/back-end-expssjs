@@ -12,7 +12,6 @@ var list = [
         died:"2"
     },
 ];
-
 app.get('/', (req, res) => {
     res.send(list);
 });

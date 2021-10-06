@@ -1,6 +1,12 @@
 const express = require('express');
 const app = express();
-app.use(express.json());
+app.use(express.json());  
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 var list = [
     {
         id: 1,
@@ -14,6 +20,7 @@ app.get('/', (req, res) => {
     res.send(list);
 });
 app.post('/', (req, res) => {
+    if (!req.body) return res.sendStatus(400);
     res.send("200");
 });
 
